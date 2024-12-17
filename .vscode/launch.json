@@ -1,0 +1,15 @@
+// .vscode/launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Employee Management System",
+            "request": "launch",
+            "mainClass": "gui.Main",
+            "vmArgs": "--module-path X:/Classes/2024_Fall/CTW/project/Employee_Management_System/lib/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        }
+    ]
+}

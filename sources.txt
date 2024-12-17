@@ -1,0 +1,6 @@
+﻿X:\Classes\2024_Fall\CTW\project\Employee_Management_System\src\DatabaseConnection.java
+X:\Classes\2024_Fall\CTW\project\Employee_Management_System\src\Employee.java
+X:\Classes\2024_Fall\CTW\project\Employee_Management_System\src\EmployeeManagementSystem.java
+X:\Classes\2024_Fall\CTW\project\Employee_Management_System\src\EmployeeService.java
+X:\Classes\2024_Fall\CTW\project\Employee_Management_System\src\gui\EmployeeGUI.java
+X:\Classes\2024_Fall\CTW\project\Employee_Management_System\src\gui\Main.java
