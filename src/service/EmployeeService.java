@@ -24,11 +24,11 @@ public class EmployeeService {
         while (rs.next()) {
             Employee emp = new Employee(
                 rs.getInt("empid"),
-                rs.getString("first_name"),
-                rs.getString("last_name"),
+                rs.getString("Fname"),
+                rs.getString("Lname"),
                 rs.getString("email"),
-                rs.getString("ssn"),
-                rs.getDouble("salary")
+                rs.getString("SSN"),
+                rs.getDouble("Salary")
             );
             employees.add(emp);
         }

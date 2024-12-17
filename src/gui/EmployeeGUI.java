@@ -3,15 +3,17 @@ package gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import model.Employee;
 import service.EmployeeService;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class EmployeeGUI {
+public class EmployeeGUI implements Initializable {
     @FXML
     private TextField firstNameField, lastNameField, emailField, ssnField, salaryField, empIdField;
 
@@ -34,17 +36,16 @@ public class EmployeeGUI {
 
     private ObservableList<Employee> employeeList;
 
-    public EmployeeGUI() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         try {
             service = new EmployeeService();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle connection error appropriately
+            statusLabel.setText("Database connection failed.");
+            return;
         }
-    }
 
-    @FXML
-    private void initialize() {
         // Initialize Table Columns
         empIdColumn.setCellValueFactory(cellData -> new javafx.beans.property.SimpleIntegerProperty(cellData.getValue().getEmpid()).asObject());
         firstNameColumn.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFirstName()));
