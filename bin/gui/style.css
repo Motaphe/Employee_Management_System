@@ -1,0 +1,34 @@
+.root {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: #2E8B57;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #3CB371;
+}
+
+.label {
+    -fx-font-weight: bold;
+}
+
+.table-view {
+    -fx-border-color: #2E8B57;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2E8B57;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #2E8B57;
+}
+
+.table-view .table-row-cell:filled:selected, .table-view .table-cell:filled:selected {
+    -fx-background-color: #3CB371;
+}
