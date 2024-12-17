@@ -115,33 +115,37 @@ public class EmployeeGUI implements Initializable {
     @FXML
     private void handleUpdate() {
         String empIdText = empIdField.getText().trim();
-        String firstName = firstNameField.getText().trim();
-        String lastName = lastNameField.getText().trim();
-        String email = emailField.getText().trim();
-        String ssn = ssnField.getText().trim();
-
         if (empIdText.isEmpty()) {
-            statusLabel.setText("Please enter Emp ID to update.");
+            statusLabel.setText("Please enter an Emp ID to update.");
             return;
         }
 
         try {
             int empid = Integer.parseInt(empIdText);
-            if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || ssn.isEmpty()) {
-                statusLabel.setText("Please fill in all fields.");
+            Employee employee = service.searchEmployeeById(empid);
+            if (employee == null) {
+                statusLabel.setText("Employee not found.");
                 return;
             }
 
-            service.updateEmployee(empid, firstName, lastName, email, ssn);
+            // Update employee details from input fields
+            employee.setFirstName(firstNameField.getText().trim());
+            employee.setLastName(lastNameField.getText().trim());
+            employee.setEmail(emailField.getText().trim());
+            employee.setSsn(ssnField.getText().trim());
+            employee.setSalary(Double.parseDouble(salaryField.getText().trim()));
+
+            // Pass the updated Employee object to the service
+            service.updateEmployee(employee);
             statusLabel.setText("Employee updated successfully.");
 
+            // Refresh the table to reflect changes
             loadEmployees();
-            handleClear();
+        } catch (NumberFormatException e) {
+            statusLabel.setText("Invalid input format.");
         } catch (SQLException e) {
             e.printStackTrace();
             statusLabel.setText("Error updating employee.");
-        } catch (NumberFormatException e) {
-            statusLabel.setText("Invalid Emp ID format.");
         }
     }
 
